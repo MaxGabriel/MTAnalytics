@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-//#import <Parse/Parse.h>
+#import <Parse/Parse.h>
 
 @interface ViewController ()
 
@@ -18,7 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject2"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
