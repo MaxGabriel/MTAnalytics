@@ -18,6 +18,14 @@
 		5023AAF0166A7D9F007B342B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023AAEF166A7D9F007B342B /* Default-568h@2x.png */; };
 		5023AAF3166A7D9F007B342B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5023AAF1166A7D9F007B342B /* MainStoryboard.storyboard */; };
 		5023AAF6166A7D9F007B342B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AAF5166A7D9F007B342B /* ViewController.m */; };
+		5023AAFE166A7DBF007B342B /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AAFD166A7DBE007B342B /* Analytics.m */; };
+		5023AB01166A7DD3007B342B /* UIViewController+Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB00166A7DD2007B342B /* UIViewController+Analytics.m */; };
+		5023AB06166A7E4A007B342B /* UINavigationController+NavigationStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB03166A7E49007B342B /* UINavigationController+NavigationStack.m */; };
+		5023AB07166A7E4A007B342B /* UIViewController+NavigationStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB05166A7E4A007B342B /* UIViewController+NavigationStack.m */; };
+		5023AB0A166A7FF5007B342B /* CoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB09166A7FF5007B342B /* CoolViewController.m */; };
+		5023AB0F166A8812007B342B /* UIView+Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB0E166A8812007B342B /* UIView+Analytics.m */; };
+		5023AB11166A93CB007B342B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5023AB10166A93CA007B342B /* QuartzCore.framework */; };
+		5023AB14166A9403007B342B /* MTImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023AB13166A9402007B342B /* MTImagePreviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +45,23 @@
 		5023AAF2166A7D9F007B342B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5023AAF4166A7D9F007B342B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5023AAF5166A7D9F007B342B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5023AAFC166A7DBE007B342B /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		5023AAFD166A7DBE007B342B /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
+		5023AAFF166A7DD2007B342B /* UIViewController+Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Analytics.h"; sourceTree = "<group>"; };
+		5023AB00166A7DD2007B342B /* UIViewController+Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Analytics.m"; sourceTree = "<group>"; };
+		5023AB02166A7E49007B342B /* UINavigationController+NavigationStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NavigationStack.h"; sourceTree = "<group>"; };
+		5023AB03166A7E49007B342B /* UINavigationController+NavigationStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NavigationStack.m"; sourceTree = "<group>"; };
+		5023AB04166A7E4A007B342B /* UIViewController+NavigationStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationStack.h"; sourceTree = "<group>"; };
+		5023AB05166A7E4A007B342B /* UIViewController+NavigationStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationStack.m"; sourceTree = "<group>"; };
+		5023AB08166A7FF4007B342B /* CoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolViewController.h; sourceTree = "<group>"; };
+		5023AB09166A7FF5007B342B /* CoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolViewController.m; sourceTree = "<group>"; };
+		5023AB0B166A80E5007B342B /* AnalyticsViewControllerContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsViewControllerContainer.h; sourceTree = "<group>"; };
+		5023AB0C166A83C3007B342B /* AnalyticsName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsName.h; sourceTree = "<group>"; };
+		5023AB0D166A8811007B342B /* UIView+Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Analytics.h"; sourceTree = "<group>"; };
+		5023AB0E166A8812007B342B /* UIView+Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Analytics.m"; sourceTree = "<group>"; };
+		5023AB10166A93CA007B342B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5023AB12166A9402007B342B /* MTImagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImagePreviewViewController.h; sourceTree = "<group>"; };
+		5023AB13166A9402007B342B /* MTImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImagePreviewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5023AB11166A93CB007B342B /* QuartzCore.framework in Frameworks */,
 				5023AADA166A7D9F007B342B /* UIKit.framework in Frameworks */,
 				5023AADC166A7D9F007B342B /* Foundation.framework in Frameworks */,
 				5023AADE166A7D9F007B342B /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +82,7 @@
 		5023AACA166A7D9F007B342B = {
 			isa = PBXGroup;
 			children = (
+				5023AB10166A93CA007B342B /* QuartzCore.framework */,
 				5023AADF166A7D9F007B342B /* Analytics */,
 				5023AAD8166A7D9F007B342B /* Frameworks */,
 				5023AAD6166A7D9F007B342B /* Products */,
@@ -88,6 +115,22 @@
 				5023AAF1166A7D9F007B342B /* MainStoryboard.storyboard */,
 				5023AAF4166A7D9F007B342B /* ViewController.h */,
 				5023AAF5166A7D9F007B342B /* ViewController.m */,
+				5023AB08166A7FF4007B342B /* CoolViewController.h */,
+				5023AB09166A7FF5007B342B /* CoolViewController.m */,
+				5023AB12166A9402007B342B /* MTImagePreviewViewController.h */,
+				5023AB13166A9402007B342B /* MTImagePreviewViewController.m */,
+				5023AAFC166A7DBE007B342B /* Analytics.h */,
+				5023AAFD166A7DBE007B342B /* Analytics.m */,
+				5023AAFF166A7DD2007B342B /* UIViewController+Analytics.h */,
+				5023AB00166A7DD2007B342B /* UIViewController+Analytics.m */,
+				5023AB02166A7E49007B342B /* UINavigationController+NavigationStack.h */,
+				5023AB03166A7E49007B342B /* UINavigationController+NavigationStack.m */,
+				5023AB0D166A8811007B342B /* UIView+Analytics.h */,
+				5023AB0E166A8812007B342B /* UIView+Analytics.m */,
+				5023AB04166A7E4A007B342B /* UIViewController+NavigationStack.h */,
+				5023AB05166A7E4A007B342B /* UIViewController+NavigationStack.m */,
+				5023AB0B166A80E5007B342B /* AnalyticsViewControllerContainer.h */,
+				5023AB0C166A83C3007B342B /* AnalyticsName.h */,
 				5023AAE0166A7D9F007B342B /* Supporting Files */,
 			);
 			path = Analytics;
@@ -176,6 +219,13 @@
 				5023AAE6166A7D9F007B342B /* main.m in Sources */,
 				5023AAEA166A7D9F007B342B /* AppDelegate.m in Sources */,
 				5023AAF6166A7D9F007B342B /* ViewController.m in Sources */,
+				5023AAFE166A7DBF007B342B /* Analytics.m in Sources */,
+				5023AB01166A7DD3007B342B /* UIViewController+Analytics.m in Sources */,
+				5023AB06166A7E4A007B342B /* UINavigationController+NavigationStack.m in Sources */,
+				5023AB07166A7E4A007B342B /* UIViewController+NavigationStack.m in Sources */,
+				5023AB0A166A7FF5007B342B /* CoolViewController.m in Sources */,
+				5023AB0F166A8812007B342B /* UIView+Analytics.m in Sources */,
+				5023AB14166A9403007B342B /* MTImagePreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
