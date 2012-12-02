@@ -16,8 +16,6 @@
 
 + (void)logAnalyticWithType:(NSString *)type userInfo:(NSDictionary *)userInfo;
 
-+ (NSString *)nameForObject:(id)object;
-
 - (BOOL)shouldScreenShotForName:(NSString *)name;
 
 @end

@@ -16,11 +16,6 @@
     [self logActionNamed:actionName userInfo:nil];
 }
 
-+ (void)logActionforConformingView:(UIView <AnalyticsName>*)view userInfo:(NSDictionary *)userInfo
-{
-    
-}
-
 - (void)logActionNamed:(NSString *)actionName userInfo:(NSDictionary *)userInfo
 {
     

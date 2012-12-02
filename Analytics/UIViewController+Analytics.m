@@ -10,11 +10,10 @@
 #import "UIViewController+NavigationStack.h"
 #import "UINavigationController+NavigationStack.h"
 #import "AnalyticsViewControllerContainer.h"
-#import "AnalyticsName.h"
 #import "Analytics.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MTImagePreviewViewController.h"
-
+#import "NSObject+AnalyticsName.h"
 
 @implementation UIViewController (Analytics)
 
@@ -35,7 +34,7 @@ NSString * const kAnalyticsSourceKey = @"com.Analytics:SourceKey";
         source = [(id <AnalyticsViewControllerContainer>)source currentViewController];
     }
     
-    return [Analytics nameForObject:source];
+    return [[source class] analyticsName];
 }
 
 - (void)logPageView
@@ -44,7 +43,7 @@ NSString * const kAnalyticsSourceKey = @"com.Analytics:SourceKey";
 }
 - (void)logPageViewInfo:(NSDictionary *)userInfo
 {
-    NSString *name = [Analytics nameForObject:self];
+    NSString *name = [[self class] analyticsName];
     NSString *source = [self sourceName];
     NSDate *time = [NSDate date];
     NSLog(@"<%@:%@:%d",[self class],NSStringFromSelector(_cmd),__LINE__);

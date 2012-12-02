@@ -7,7 +7,7 @@
 //
 
 #import "Analytics.h"
-#import "AnalyticsName.h"
+
 
 @implementation Analytics
 
@@ -26,16 +26,6 @@ NSString * const kAnalyticsPrefix = @"com.Analytics:";
 + (void)logAnalyticWithType:(NSString *)type userInfo:(NSDictionary *)userInfo
 {
     
-}
-
-+ (NSString *)nameForObject:(id)object
-{
-    NSString *name = NSStringFromClass([object class]);
-    if ([object conformsToProtocol:@protocol(AnalyticsName)]) {
-        name = [(id <AnalyticsName>)object nameForAnalytics];
-    }
-    
-    return name;
 }
 
 + (NSString *)defaultsKeyForName:(NSString *)name
