@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
+#import "UIViewController+Analytics.h"
+#import "MTImagePreviewViewController.h"
 
 @interface ViewController ()
 
@@ -20,6 +22,14 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self logPageView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -1,5 +1,5 @@
 //
-//  AnalyticsNetworking.h
+//  MTParseAnalyticsNetworking.h
 //  Analytics
 //
 //  Created by Maximilian Tagher on 12/2/12.
@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AnalyticsNetworking.h"
 
-@protocol AnalyticsNetworking <NSObject>
+@interface MTParseAnalyticsNetworking : NSObject <AnalyticsNetworking>
+
++ (id)sharedNetworking;
 
 - (void)saveImage:(UIImage *)image named:(NSString *)name userInfo:(NSDictionary *)userInfo;
 

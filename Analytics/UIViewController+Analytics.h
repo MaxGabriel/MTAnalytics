@@ -11,7 +11,7 @@
 @interface UIViewController (Analytics)
 
 - (void)logPageView;
-- (void)logPageViewInfo:(NSDictionary *)userInfo;
+- (void)logPageViewWithInfo:(NSDictionary *)userInfo;
 
 
 

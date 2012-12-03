@@ -14,6 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MTImagePreviewViewController.h"
 #import "NSObject+AnalyticsName.h"
+#import "NSMutableDictionary+SafeSet.h"
 
 @implementation UIViewController (Analytics)
 
@@ -21,6 +22,40 @@ NSString * const kAnalyticsPageViewType = @"com.Analytics:PageView";
 
 
 NSString * const kAnalyticsSourceKey = @"com.Analytics:SourceKey";
+
+#pragma mark - Public API
+
+- (void)logPageView
+{
+    [self logPageViewWithInfo:nil];
+}
+
+- (void)logPageViewWithInfo:(NSDictionary *)userInfo
+{
+    
+    NSMutableDictionary *mutableInfo = [[NSMutableDictionary alloc] initWithDictionary:userInfo];
+    
+    
+    NSString *name = [[self class] analyticsName];
+    NSString *source = [self sourceName];
+    NSDate *time = [NSDate date];
+    
+    
+    [mutableInfo safeSetObject:name forKey:kMTNameKey overwritePolicy:NSMutableDictionaryOverwritePolicyNo];
+    [mutableInfo safeSetObject:source forKey:kMTSourceKey overwritePolicy:NSMutableDictionaryOverwritePolicyNo];
+    [mutableInfo safeSetObject:time forKey:kMTTimeKey overwritePolicy:NSMutableDictionaryOverwritePolicyNo];
+    
+    
+    if ([[Analytics sharedAnalytics] shouldScreenShotForName:name type:MTAnalyticsTypeViewController]) {
+        UIImage *screenshot = [self screenshot];
+        NSLog(@"Took a screenshot");
+        [[Analytics sharedAnalytics].analyticsNetworking saveViewControllerImage:screenshot named:name userInfo:[mutableInfo copy]];
+    }
+    
+    [[Analytics sharedAnalytics].analyticsNetworking logViewControllerAnalyticUserInfo:[mutableInfo copy]];
+}
+
+#pragma mark - Utility
 
 - (NSString *)sourceName
 {
@@ -37,25 +72,7 @@ NSString * const kAnalyticsSourceKey = @"com.Analytics:SourceKey";
     return [[source class] analyticsName];
 }
 
-- (void)logPageView
-{
-    [self logPageViewInfo:nil];
-}
-- (void)logPageViewInfo:(NSDictionary *)userInfo
-{
-    NSString *name = [[self class] analyticsName];
-    NSString *source = [self sourceName];
-    NSDate *time = [NSDate date];
-    NSLog(@"<%@:%@:%d",[self class],NSStringFromSelector(_cmd),__LINE__);
-    UIGraphicsBeginImageContext(self.view.bounds.size);
-    
-    UIImage *screenshot = [self screenshot];
-    [self performSelector:@selector(previewImage:) withObject:screenshot afterDelay:2.0f];
-    
-    // Copy userInfo dictionary and add the properties we're finding to it. 
-    
-    // Log analytic with 'page view type' and with the information we've gathered.
-}
+#pragma mark - Screenshots
 
 - (void)previewImage:(UIImage *)image
 {

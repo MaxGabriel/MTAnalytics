@@ -11,7 +11,16 @@
 
 @implementation Analytics
 
+
+NSString * const kMTConfigKey = @"MTAnalyticsConfigKey";
+NSString * const kMTTimeKey = @"MTAnalyticsTimeKey";
+NSString * const kMTSourceKey = @"MTAnalyticsSourceKey";
+NSString * const kMTNameKey = @"MTAnalyticsNameKey";
+
 NSString * const kAnalyticsPrefix = @"com.Analytics:";
+
+NSString * const kScreenshotOptionViewControllers = @"com.Analytics.ScreenshotOptionViewControllers";
+NSString * const kScreenshotOptionActions = @"com.Analytics.ScreenshotOptionActions";
 
 + (id)sharedAnalytics
 {
@@ -23,28 +32,44 @@ NSString * const kAnalyticsPrefix = @"com.Analytics:";
     return sharedAnalytics;
 }
 
-+ (void)logAnalyticWithType:(NSString *)type userInfo:(NSDictionary *)userInfo
-{
-    
-}
+#pragma mark - Screenshots
 
-+ (NSString *)defaultsKeyForName:(NSString *)name
+- (BOOL)shouldScreenShotForName:(NSString *)name type:(MTAnalyticsType)type
 {
-    return [kAnalyticsPrefix stringByAppendingString:name];
-}
-
-- (BOOL)shouldScreenShotForName:(NSString *)name
-{
-    return YES;
-    if (self.takeScreenshots) {
-        if (![[NSUserDefaults standardUserDefaults] objectForKey:[[self class] defaultsKeyForName:name]]) {
+    if ([self shouldScreenshotForType:type]) {
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:[[self class] screenshotKeyForName:name]]) {
             // Add it to NSUserDefaults so we don't screenshot it again.
             [[NSUserDefaults standardUserDefaults] setObject:[NSDate date]
-                                                      forKey:[[self class] defaultsKeyForName:name]];
+                                                      forKey:[[self class] screenshotKeyForName:name]];
             return YES;
         }
     }
     return NO;
 }
+
++ (NSString *)screenshotKeyForName:(NSString *)name
+{
+    return [kAnalyticsPrefix stringByAppendingString:name];
+}
+
+- (BOOL)shouldScreenshotForType:(MTAnalyticsType)type
+{
+    switch (type) {
+        case MTAnalyticsTypeViewController: {
+            return [self.screenshotOptions containsObject:kScreenshotOptionViewControllers];
+            break;
+        }
+        case MTAnalyticsTypeAction: {
+            return [self.screenshotOptions containsObject:kScreenshotOptionActions];
+            break;
+        }
+        default: {
+            NSLog(@"<%@:%@:%d",[self class],NSStringFromSelector(_cmd),__LINE__);
+            NSLog(@"Warning -- unhandled MTAnalytics type");
+            break;
+        }
+    }
+}
+
 
 @end

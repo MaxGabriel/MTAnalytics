@@ -7,15 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AnalyticsNetworking.h"
 
-@interface Analytics : NSObject
+@interface Analytics : NSObject <AnalyticsNetworking>
 
-@property (nonatomic) BOOL takeScreenshots;
+extern NSString * const kMTConfigKey;
+extern NSString * const kMTTimeKey;
+extern NSString * const kMTSourceKey;
+extern NSString * const kMTNameKey;
 
-+ (id)sharedAnalytics;
 
-+ (void)logAnalyticWithType:(NSString *)type userInfo:(NSDictionary *)userInfo;
+typedef NS_ENUM(NSInteger, MTAnalyticsType) {
+    MTAnalyticsTypeViewController,
+    MTAnalyticsTypeAction
+};
 
-- (BOOL)shouldScreenShotForName:(NSString *)name;
++ (Analytics *)sharedAnalytics;
+
+extern NSString * const kScreenshotOptionViewControllers;
+extern NSString * const kScreenshotOptionActions;
+@property (nonatomic, strong) NSSet *screenshotOptions;
+
+@property (nonatomic, strong) id <AnalyticsNetworking> analyticsNetworking;
+
+- (BOOL)shouldScreenShotForName:(NSString *)name type:(MTAnalyticsType)type;
+
 
 @end

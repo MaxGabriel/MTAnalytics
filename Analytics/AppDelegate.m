@@ -8,14 +8,21 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Analytics.h"
+#import "MTParseAnalyticsNetworking.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:<#Application ID#>
-                  clientKey:<#Client Key#>];
+    [Parse setApplicationId:@"D88Jr9Kds1yfy3FQ1nNqQFPH5nALlxKVdQrhQqbZ"
+                  clientKey:@"Xx0rT5k5NOKaMj3HOznYKFdlKrnfoXp7pvzWjX0B"];
     // Override point for customization after application launch.
+    
+    [Analytics sharedAnalytics].screenshotOptions = [NSSet setWithArray:@[kScreenshotOptionViewControllers, kScreenshotOptionActions]];
+    [Analytics sharedAnalytics].analyticsNetworking = [MTParseAnalyticsNetworking sharedNetworking];
+    
+    
     return YES;
 }
 							
